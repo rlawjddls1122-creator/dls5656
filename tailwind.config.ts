@@ -27,13 +27,26 @@ const config: Config = {
       },
       fontFamily: {
         sans: [
-          "var(--font-sans)",
+          '"Pretendard Variable"',
+          "Pretendard",
           "system-ui",
           "-apple-system",
           "Segoe UI",
           "Roboto",
           "sans-serif",
         ],
+      },
+      // 모든 글자 크기의 행간을 140%로 통일
+      fontSize: {
+        xs: ["0.75rem", "1.4"],
+        sm: ["0.875rem", "1.4"],
+        base: ["1rem", "1.4"],
+        lg: ["1.125rem", "1.4"],
+        xl: ["1.25rem", "1.4"],
+        "2xl": ["1.5rem", "1.4"],
+        "3xl": ["1.875rem", "1.4"],
+        "4xl": ["2.25rem", "1.4"],
+        "5xl": ["3rem", "1.4"],
       },
       boxShadow: {
         glow: "0 0 40px -12px rgba(139, 124, 255, 0.45)",

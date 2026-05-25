@@ -53,10 +53,10 @@ export default function TodaysPick({ candidates }: { candidates: Playlist[] }) {
             </span>
             <PlatformBadge platform={pick.platform} />
           </div>
-          <h2 className="mt-3 text-3xl font-bold leading-tight text-white">
+          <h2 className="mt-3 text-3xl font-bold text-white">
             {pick.title}
           </h2>
-          <p className="mt-2 text-sm leading-relaxed text-zinc-200/90">
+          <p className="mt-2 text-sm text-zinc-200/90">
             {pick.description}
           </p>
           <div className="mt-3 flex flex-wrap gap-2 text-xs text-zinc-300/80">

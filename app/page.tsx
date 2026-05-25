@@ -8,12 +8,12 @@ export default function Home() {
       <Header />
       <main className="mx-auto max-w-6xl px-6 py-12">
         <section className="mb-12 max-w-2xl">
-          <h1 className="text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl">
+          <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
             지금 내 작업에
             <br />
             <span className="text-glow-soft">딱 맞는 BGM</span>
           </h1>
-          <p className="mt-4 text-base leading-relaxed text-mist">
+          <p className="mt-4 text-base text-mist">
             기분과 작업 종류를 고르면, 그 결에 어울리는 플레이리스트를 골라
             드려요. 고르기 귀찮은 날엔 &lsquo;오늘의 픽&rsquo;에 맡겨보세요.
           </p>

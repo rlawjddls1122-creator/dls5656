@@ -18,9 +18,7 @@ export default function PlaylistCard({ playlist }: { playlist: Playlist }) {
         <div className="absolute right-4 top-4">
           <PlatformBadge platform={playlist.platform} />
         </div>
-        <div className="absolute bottom-4 left-4 flex items-center gap-2 text-xs text-zinc-300/80">
-          <span>{playlist.trackCount}곡</span>
-          <span className="text-zinc-500">·</span>
+        <div className="absolute bottom-4 left-4 text-xs text-zinc-300/80">
           <span>{playlist.duration}</span>
         </div>
         {/* 호버 시 떠오르는 재생 버튼 */}
@@ -37,7 +35,7 @@ export default function PlaylistCard({ playlist }: { playlist: Playlist }) {
           <h3 className="text-base font-semibold text-zinc-100 transition-colors group-hover:text-white">
             {playlist.title}
           </h3>
-          <p className="mt-1.5 text-sm leading-relaxed text-mist">
+          <p className="mt-1.5 text-sm text-mist">
             {playlist.description}
           </p>
         </div>
