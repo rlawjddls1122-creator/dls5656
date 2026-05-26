@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
+import AnalyticsProvider from "@/components/AnalyticsProvider";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -21,6 +23,9 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body className="min-h-screen font-sans selection:bg-glow/30 selection:text-white">
+        <Suspense fallback={null}>
+          <AnalyticsProvider />
+        </Suspense>
         {children}
       </body>
     </html>

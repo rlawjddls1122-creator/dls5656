@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import type { Playlist } from "@/lib/types";
+import { track } from "@/lib/mixpanel";
 import { PlatformBadge, ShuffleIcon, PlayIcon } from "./icons";
 
 // candidates 는 무드 매칭 점수가 가장 높은 후보들. 그 안에서 뽑는다.
@@ -11,6 +12,7 @@ export default function TodaysPick({ candidates }: { candidates: Playlist[] }) {
 
   // 후보 안에서 직전과 다른 항목으로 다시 뽑기.
   const shuffle = () => {
+    track("Todays Pick Shuffle", { candidate_count: candidates.length });
     if (candidates.length === 0) return;
     if (candidates.length === 1) {
       setPick(candidates[0]);
@@ -83,6 +85,13 @@ export default function TodaysPick({ candidates }: { candidates: Playlist[] }) {
             href={pick.url}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() =>
+              track("Todays Pick Play", {
+                playlist_id: pick.id,
+                playlist_title: pick.title,
+                platform: pick.platform,
+              })
+            }
             className="flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-ink-950 transition-transform hover:scale-[1.03]"
           >
             <PlayIcon className="h-4 w-4 translate-x-[1px]" />

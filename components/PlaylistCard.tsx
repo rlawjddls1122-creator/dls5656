@@ -1,4 +1,7 @@
+"use client";
+
 import type { Playlist } from "@/lib/types";
+import { track } from "@/lib/mixpanel";
 import { PlatformBadge, PlayIcon } from "./icons";
 import TagChip from "./TagChip";
 
@@ -8,6 +11,13 @@ export default function PlaylistCard({ playlist }: { playlist: Playlist }) {
       href={playlist.url}
       target="_blank"
       rel="noopener noreferrer"
+      onClick={() =>
+        track("Playlist Click", {
+          playlist_id: playlist.id,
+          playlist_title: playlist.title,
+          platform: playlist.platform,
+        })
+      }
       className="surface surface-hover group relative flex flex-col overflow-hidden rounded-2xl shadow-card animate-fade-up"
     >
       {/* 커버 — 그라데이션으로 분위기 표현 */}

@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import type { MoodTag, Playlist, WorkTag } from "@/lib/types";
+import { track } from "@/lib/mixpanel";
 import FilterBar from "./FilterBar";
 import PlaylistCard from "./PlaylistCard";
 import TodaysPick from "./TodaysPick";
@@ -47,9 +48,24 @@ export default function HomeClient({ playlists }: { playlists: Playlist[] }) {
       <FilterBar
         selectedMoods={selectedMoods}
         selectedWorks={selectedWorks}
-        onToggleMood={(t) => setSelectedMoods((p) => toggle(p, t))}
-        onToggleWork={(t) => setSelectedWorks((p) => toggle(p, t))}
+        onToggleMood={(t) => {
+          track("Filter Toggle", {
+            type: "mood",
+            tag: t,
+            selected: !selectedMoods.includes(t),
+          });
+          setSelectedMoods((p) => toggle(p, t));
+        }}
+        onToggleWork={(t) => {
+          track("Filter Toggle", {
+            type: "work",
+            tag: t,
+            selected: !selectedWorks.includes(t),
+          });
+          setSelectedWorks((p) => toggle(p, t));
+        }}
         onReset={() => {
+          track("Filter Reset");
           setSelectedMoods([]);
           setSelectedWorks([]);
         }}
